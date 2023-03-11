@@ -49,3 +49,7 @@ def convert(
 
     with open(str(output_path_dir / "model.onnx"), "wb") as f:
         f.write(onx.SerializeToString())
+
+
+if __name__ == "__main__":
+    typer.run(convert)
