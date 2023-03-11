@@ -1,0 +1,10 @@
+features:
+  # list of features
+  # feature name used by onnx-runtime
+  - name: "input_1"
+    # dimensions of the input, -1 is for the dynamix axis (ex. batch_size)
+    dimensions:
+      - -1
+      - 2
+    # feature type (int32, int16, int8, float32, float16, str, bool)
+    type: "int32"
