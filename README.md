@@ -12,9 +12,18 @@ To use sklearn-onnx-converter you have to clone the repo and  install the packag
 
 ### Installation
 
+
+
 Before to use sklearn-onnx-converter you must install the package using pip
-```
+```bash
 $ pip install .
+```
+
+### Docker
+
+To build the docker image you can use the following command:
+```bash
+$ docker build . -t sklearn-onnx
 ```
 
 ## Usage
@@ -22,7 +31,7 @@ $ pip install .
 To convert a sklearn model to the ONNX format you can run the convert command as a bash script or using it as a Python script. (See the examples folder for more details).
 
 ### Bash script
-```
+```bash
 $ python onnx_converter/onnx_converter.py -m PATH_TO_SKLEARN_MODEL -f PATH_TO_YOUR_FEATURE_CONFIG_FILE -o OUTPUT_FOLDER
 ```
 
@@ -46,13 +55,25 @@ if __name__ == "__main__":
 ```
 
 - run the script:
-```
+```bash
 $ python main.py
+```
+
+### With docker
+
+``` bash
+$ docker run \
+    -v INPUT_FOLDER_ABSOLUTE_PATH:/input \
+    -v OUTPUT_FOLDER_ABSOLUTE_PATH:/output \
+    sklearn-onnx \
+    -m /input/MODEL_NAME \
+    -o /output/OUTPUT_DIRECTORY \
+    -f /input/FEATURE_CONFIG_FILE.yaml
 ```
 
 ## TODO
 
-- [ ] Add docker support
+- [x] Add docker support
 - [ ] Add more examples
 
 ## Contributing
